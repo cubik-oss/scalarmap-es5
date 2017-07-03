@@ -5,7 +5,7 @@ var StringMap = (function () {
         /** @internal */
         this._keyCount = 0;
         /** @internal */
-        this._map = Object.create(null);
+        this._map = Object.create(null); // unfortunately key has to be 'string' not 'K' due to TS limitations
         if (source) {
             for (var _i = 0, source_1 = source; _i < source_1.length; _i++) {
                 var _a = source_1[_i], k = _a[0], v = _a[1];
@@ -61,13 +61,13 @@ var StringMap = (function () {
         var keys = [];
         for (var key in this._map)
             keys.push(key);
-        return keys;
+        return keys; // index typings
     };
     StringMap.prototype.entries = function () {
         var entries = [];
         for (var key in this._map)
             entries.push([key, this._map[key]]);
-        return entries;
+        return entries; // index typings
     };
     return StringMap;
 }());

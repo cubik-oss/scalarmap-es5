@@ -22,8 +22,14 @@ byType.set('a', 10) // fine
 byType.set('z', 10) // errors - 'z' is not 'a' | 'b'
 byType.get('z') // errors - 'z' is not 'a' | 'b'
 
-const types = Type[] = byType.keys() // fine - specific typings
+const types: Type[] = byType.keys() // fine - specific typings
 ```
+
+## Types
+
+Keys and value types are validated. Key type defaults to `string`, but you can pass in a specified key type.
+
+![demonstrates types being used in an editor](docs/typings.png)
 
 ## Limitations
 

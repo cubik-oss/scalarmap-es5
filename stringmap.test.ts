@@ -84,3 +84,26 @@ describe("stringmap", function() {
     })
 
 })
+
+describe("README", () => {
+
+    it("has a working example", () => {
+        // commented out the lines that should type error
+        const map = new StringMap<number>();
+
+        map.set('a', 5); // fine
+        //map.set(10, 5); // errors - key is not string
+        //map.set(10, 'a'); // errors - value is not number
+
+
+
+        type Type = "a" | "b";
+        const byType = new StringMap<number, Type>();
+        byType.set('a', 10) // fine
+        // byType.set('z', 10) // errors - 'z' is not 'a' | 'b'
+        // byType.get('z') // errors - 'z' is not 'a' | 'b'
+
+        const types: Type[] = byType.keys() // fine - specific typings
+    });
+
+});

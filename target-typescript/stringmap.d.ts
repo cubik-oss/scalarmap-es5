@@ -8,6 +8,6 @@ export declare class StringMap<V, K extends string = string> {
     set(key: K, value: V): this;
     readonly size: number;
     values(): V[];
-    keys(): string[];
-    entries(): (string | V)[][];
+    keys(): K[];
+    entries(): [K, V][];
 }
