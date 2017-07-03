@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "target": "es5",
+        "declaration": true,
+        "strict": true,
+        "stripInternal": true,
+        "sourceMap": true,
+        "inlineSources": true,
+        "outDir": "./target-typescript",
+        "lib": [
+            "es2015"
+        ]
+    },
+    "files": [
+        "stringmap"
+    ]
+}
+
