@@ -6,7 +6,7 @@ Full TypeScript typings are included. Used with Typescript 2.x. Supports string 
 
 ## Usage
 
-```
+```typescript
 import { StringMap } from "stringmap-es5";
 
 const map = new StringMap<number>();
