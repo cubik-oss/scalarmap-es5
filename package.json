@@ -1,6 +1,6 @@
 {
   "name": "stringmap-es5",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "String-key only ES6 Map polyfill, with same asymptotic performance.",
   "main": "target-typescript/stringmap",
   "scripts": {
