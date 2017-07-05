@@ -1,10 +1,13 @@
 import { StringMap } from "./stringmap";
+import { NumberMap } from "./stringmap";
+
 import { assert } from "chai";
 
 const A = {id: "A"};
 const B = {id: "B"};
 
 type Val = {id: string};
+type NVal = {id: number}
 
 
 describe("stringmap", function() {
@@ -81,9 +84,92 @@ describe("stringmap", function() {
 
         const notPresent = map.delete('z');
         assert.isFalse(notPresent, "map false positive on previous inclusion");
+    });
+
+    // Number map
+
+    it("NumberMap counts changes to key size", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.equal(map.size, 2);
+
+        map.set(6, A);
+        assert.equal(map.size, 3);
+
+        map.delete(6);
+        assert.equal(map.size, 2);
+
+        map.delete(5);
+        map.delete(9);
+        assert.equal(map.size, 0);
+
+        map.set(6, A);
+        assert.equal(map.size, 1);
+        map.delete(100);
+        assert.equal(map.size, 1, "size should change only when key was present");
+        map.delete(6);
+        assert.equal(map.size, 0);
+    });
+
+    it("NumberMap calls forEach with values", function() {
+        const calls: [number,any][] = [];
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        map.forEach((v, k, m) => {
+            assert.equal(m, map, "should have called with map");
+            calls.push([k,v]);
+        })
+        assert.sameDeepMembers(map.entries(), [[5,A], [9,B]]);
+    })
+
+    it("NumberMap clear empties", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.equal(map.size, 2);
+
+        map.clear();
+        assert.equal(map.size, 0);
+    })
+
+    it("NumberMap can get values", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.sameMembers(map.values(), [A,B]);
+    })
+
+    it("NumberMap can get keys", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.sameMembers(map.keys(), [5,9]);
+    })
+
+    it("NumberMap can get entires", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.sameDeepMembers(map.entries(), [[5,A], [9,B]]);
+    })
+
+    it("NumberMap can check membership", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        assert.isTrue(map.has(5), "has false negative");
+        assert.isFalse(map.has(100), "has false positive");
+
+        map.delete(5);
+        assert.isFalse(map.has(5), "has + delete not working togther");
+    });
+
+    it("NumberMap has a spec compliant 'delete'", function() {
+        const map = new NumberMap<Val,number>([[5,A], [9,B]]);
+        const had = map.delete(5);
+        assert.isTrue(had, "delete didn't recognize previous inclusion");
+        assert.isFalse(map.has(5), 'had should be false after a delete');
+
+        const notPresent = map.delete(100);
+        assert.isFalse(notPresent, "map false positive on previous inclusion");
     })
 
 })
+
+describe("numbermap", function() {
+
+
+
+});
+
 
 describe("README", () => {
 
