@@ -7,8 +7,6 @@ const A = {id: "A"};
 const B = {id: "B"};
 
 type Val = {id: string};
-type NVal = {id: number}
-
 
 describe("stringmap", function() {
 
