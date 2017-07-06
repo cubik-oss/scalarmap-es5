@@ -1,5 +1,4 @@
-import { StringMap } from "./stringmap";
-import { NumberMap } from "./numbermap";
+import { StringMap, NumberMap } from "./index";
 
 import { assert } from "chai";
 

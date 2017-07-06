@@ -14,7 +14,8 @@
     },
     "files": [
         "stringmap",
-        "numbermap"
+        "numbermap",
+        "index"
     ]
 }
 
