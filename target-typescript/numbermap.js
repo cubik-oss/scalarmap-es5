@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var StringMap = (function () {
-    function StringMap(source) {
+var NumberMap = (function () {
+    function NumberMap(source) {
         /** @internal */
         this._keyCount = 0;
         /** @internal */
-        this._map = Object.create(null); // unfortunately key has to be 'string' not 'K' due to TS limitations
+        this._map = Object.create(null);
         if (source) {
             for (var _i = 0, source_1 = source; _i < source_1.length; _i++) {
                 var _a = source_1[_i], k = _a[0], v = _a[1];
@@ -13,11 +13,11 @@ var StringMap = (function () {
             }
         }
     }
-    StringMap.prototype.clear = function () {
+    NumberMap.prototype.clear = function () {
         this._map = Object.create(null);
         this._keyCount = 0;
     };
-    StringMap.prototype.delete = function (key) {
+    NumberMap.prototype.delete = function (key) {
         var had = this.has(key);
         delete this._map[key];
         if (had) {
@@ -25,18 +25,18 @@ var StringMap = (function () {
         }
         return had;
     };
-    StringMap.prototype.forEach = function (callback, thisArg) {
+    NumberMap.prototype.forEach = function (callback, thisArg) {
         for (var key in this._map) {
             callback.call(thisArg, this._map[key], key, this);
         }
     };
-    StringMap.prototype.get = function (key) {
+    NumberMap.prototype.get = function (key) {
         return this._map[key];
     };
-    StringMap.prototype.has = function (key) {
+    NumberMap.prototype.has = function (key) {
         return key in this._map;
     };
-    StringMap.prototype.set = function (key, value) {
+    NumberMap.prototype.set = function (key, value) {
         var had = this.has(key);
         this._map[key] = value;
         if (!had) {
@@ -44,32 +44,32 @@ var StringMap = (function () {
         }
         return this;
     };
-    Object.defineProperty(StringMap.prototype, "size", {
+    Object.defineProperty(NumberMap.prototype, "size", {
         get: function () {
             return this._keyCount;
         },
         enumerable: true,
         configurable: true
     });
-    StringMap.prototype.values = function () {
+    NumberMap.prototype.values = function () {
         var values = [];
         for (var key in this._map)
             values.push(this._map[key]);
         return values;
     };
-    StringMap.prototype.keys = function () {
+    NumberMap.prototype.keys = function () {
         var keys = [];
         for (var key in this._map)
-            keys.push(key);
+            keys.push(+key);
         return keys; // index typings
     };
-    StringMap.prototype.entries = function () {
+    NumberMap.prototype.entries = function () {
         var entries = [];
         for (var key in this._map)
-            entries.push([key, this._map[key]]);
+            entries.push([+key, this._map[key]]);
         return entries; // index typings
     };
-    return StringMap;
+    return NumberMap;
 }());
-exports.StringMap = StringMap;
-//# sourceMappingURL=stringmap.js.map
+exports.NumberMap = NumberMap;
+//# sourceMappingURL=numbermap.js.map

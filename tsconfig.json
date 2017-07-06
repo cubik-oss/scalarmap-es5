@@ -13,7 +13,8 @@
         ]
     },
     "files": [
-        "stringmap"
+        "stringmap",
+        "numbermap"
     ]
 }
 
