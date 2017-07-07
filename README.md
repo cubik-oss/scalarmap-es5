@@ -4,6 +4,15 @@ ECMAScript 6+ `Map` with restrictions that keys are always strings. This restric
 
 Full TypeScript typings are included. Used with Typescript 2.x. Supports string union keys, string enum keys etc.
 
+## Install
+
+```sh
+npm install --save scalarmap-es5
+
+# or
+yarn add scalarmap-es5
+```
+
 ## Usage
 
 ```typescript
