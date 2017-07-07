@@ -1,3 +1,3 @@
-export { StringMap } from "./stringmap";
-export { NumberMap } from "./numbermap";
+export {StringMap, NarrowStringMap} from "./stringmap";
+export {NumberMap} from "./numbermap";
 

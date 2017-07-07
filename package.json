@@ -1,6 +1,6 @@
 {
   "name": "scalarmap-es5",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Scalar-key only ES6 Map polyfill (stirng + numbers), with same asymptotic performance.",
   "main": "target-typescript/index",
   "scripts": {
@@ -10,13 +10,19 @@
     "prepublish": "npm run -s clean && npm run compileTypescript",
     "compile": "npm run clean && npm run compileTypescript"
   },
-  "typings": ["target-typescript/stringmap", "target-typescript/numbermap"],
+  "typings": [
+    "target-typescript/index",
+    "target-typescript/stringmap",
+    "target-typescript/numbermap"
+  ],
   "files": [
+    "index.ts",
     "stringmap.ts",
     "numbermap.ts",
     "target-typescript"
   ],
   "author": "Tim Ruffles <timruffles@gmail.com>",
+  "contributors": ["Reuben Thomas-Davis <reubenestd@gmail.com>"],
   "license": "MIT",
   "devDependencies": {
     "@types/chai": "^3.5.2",
