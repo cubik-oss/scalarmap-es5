@@ -1,6 +1,6 @@
 {
   "name": "scalarmap-es5",
-$ "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Scalar-key only ES6 Map polyfill (stirng + numbers), with same asymptotic performance.",
   "main": "target-typescript/index",
   "scripts": {
