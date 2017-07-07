@@ -1,5 +1,5 @@
 
-export class StringMap<V, K extends string = string> {
+export class NarrowStringMap<K extends string, V> {
 
     /** @internal */
     private _keyCount = 0;
@@ -28,7 +28,7 @@ export class StringMap<V, K extends string = string> {
       return had;
     }
 
-    forEach(callback: (value: V, key: K, map: StringMap<V,K>) => void, thisArg?: any): void {
+    forEach(callback: (value: V, key: K, map: NarrowStringMap<K,V>) => void, thisArg?: any): void {
       for(const key in this._map) {
         callback.call(thisArg, this._map[key], key, this);
       }
@@ -74,6 +74,5 @@ export class StringMap<V, K extends string = string> {
     }
 }
 
-
-
-
+export class StringMap<V> extends NarrowStringMap<string, V> {
+}

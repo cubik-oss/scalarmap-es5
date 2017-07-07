@@ -7,7 +7,7 @@ Full TypeScript typings are included. Used with Typescript 2.x. Supports string 
 ## Usage
 
 ```typescript
-import { StringMap } from "stringmap-es5";
+import { StringMap, NarrowStringMap } from "stringmap-es5";
 
 const map = new StringMap<number>();
 
@@ -17,7 +17,7 @@ map.set(10, 'a'); // errors - value is not number
 
 
 type Type = "a" | "b";
-const byType = new StringMap<number, Type>();
+const byType = new NarrowStringMap<Type, number>();
 byType.set('a', 10) // fine
 byType.set('z', 10) // errors - 'z' is not 'a' | 'b'
 byType.get('z') // errors - 'z' is not 'a' | 'b'
