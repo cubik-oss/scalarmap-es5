@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../index.ts"],"names":[],"mappings":";;AAAA,yCAAwC;AAA/B,gCAAA,SAAS,CAAA;AAClB,yCAAwC;AAA/B,gCAAA,SAAS,CAAA","sourcesContent":["export { StringMap } from \"./stringmap\";\nexport { NumberMap } from \"./numbermap\";\n\n"]}

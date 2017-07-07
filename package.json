@@ -2,7 +2,7 @@
   "name": "stringmap-es5",
   "version": "1.0.2",
   "description": "String-key only ES6 Map polyfill, with same asymptotic performance.",
-  "main": "target-typescript/stringmap",
+  "main": "target-typescript/index",
   "scripts": {
     "compileTypescript": "mkdir -p ./target-typescript && tsc",
     "test": "mocha  --compilers ts:ts-node/register `((test -z $WATCH) && :) || echo '-w'` *.test.ts",
@@ -10,19 +10,21 @@
     "prepublish": "npm run -s clean && npm run compileTypescript",
     "compile": "npm run clean && npm run compileTypescript"
   },
-  "typings": "target-typescript/stringmap",
+  "typings": ["target-typescript/stringmap", "target-typescript/numbermap"],
   "files": [
     "stringmap.ts",
+    "numbermap.ts",
     "target-typescript"
   ],
   "author": "Tim Ruffles <timruffles@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "^3.4.32",
-    "@types/mocha": "^2.2.31",
+    "@types/chai": "^3.5.2",
+    "@types/mocha": "^2.2.41",
     "chai": "^3.5.0",
-    "mocha": "^3.0.2",
+    "mocha": "^3.4.2",
     "ts-node": "^3.1.0",
-    "typescript": "^2.4.1"
+    "typescript": "^2.4.1",
+    "typings": "^2.1.1"
   }
 }
