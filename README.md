@@ -1,4 +1,4 @@
-# StringMap ES5
+# ScalarMap ES5
 
 ECMAScript 6+ `Map` with restrictions that keys are always strings. This restrictions allows the polyfill to have the same asymptotic performance as real ECMAScript Maps (unlike polyfills of maps with arbitrary keys).
 
@@ -7,7 +7,7 @@ Full TypeScript typings are included. Used with Typescript 2.x. Supports string 
 ## Usage
 
 ```typescript
-import { StringMap } from "stringmap-es5";
+import { StringMap, NarrowStringMap } from "scalarmap-es5";
 
 const map = new StringMap<number>();
 
@@ -17,12 +17,20 @@ map.set(10, 'a'); // errors - value is not number
 
 
 type Type = "a" | "b";
-const byType = new StringMap<number, Type>();
+const byType = new NarrowStringMap<Type, number>();
 byType.set('a', 10) // fine
 byType.set('z', 10) // errors - 'z' is not 'a' | 'b'
 byType.get('z') // errors - 'z' is not 'a' | 'b'
 
 const types: Type[] = byType.keys() // fine - specific typings
+```
+
+If you only need a single map type you can import only the required file. Both types of stringmap are implemented
+with the same code, so there is only a single file:
+
+```typescript
+import { NarrowStringMap } from "scalarmap-es5/stringmap";
+import { NumberMap } from "scalarmap-es5/numbermap";
 ```
 
 ## Types

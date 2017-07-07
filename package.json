@@ -1,7 +1,7 @@
 {
-  "name": "stringmap-es5",
+  "name": "scalarmap-es5",
   "version": "1.0.2",
-  "description": "String-key only ES6 Map polyfill, with same asymptotic performance.",
+  "description": "Scalar-key only ES6 Map polyfill (stirng + numbers), with same asymptotic performance.",
   "main": "target-typescript/index",
   "scripts": {
     "compileTypescript": "mkdir -p ./target-typescript && tsc",
